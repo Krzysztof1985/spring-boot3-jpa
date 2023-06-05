@@ -1,0 +1,21 @@
+
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/master-changelog.xml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        jdbc:
+          batch_size: 500
+  datasource:
+    url: jdbc:postgresql://localhost:5434/lp
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+server:
+  port: 8081
