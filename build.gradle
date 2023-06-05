@@ -7,14 +7,14 @@ buildscript {
     }
     ext {
         springFoxVersion = '3.0.0'
-        springBootDependenciesVersion = '3.0.5'
+        springBootDependenciesVersion = '2.7.10'
         mapstructVersion = "1.4.2.Final"
         lombokMapstructBindingVersion = "0.2.0"
         lombokVersion = "1.18.26"
-        hibernateVersion = '6.2.2.Final'
+        hibernateVersion = '5.6.0.Final'
         liquibaseVersion = '4.17.2'
         postgresqlDriverVersion = '42.6.0'
-        springDocVersion = '2.0.0'
+        springDocVersion = '1.6.9'
         openApiVersion = '1.6.9'
     }
 }
@@ -29,7 +29,6 @@ plugins {
 
 group = 'pl.chris'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
 
 configurations {
     compileOnly {
@@ -42,8 +41,8 @@ repositories {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 dependencies {
@@ -59,11 +58,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
-    implementation "io.springfox:springfox-boot-starter:${springFoxVersion}"
-    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+//    implementation "io.springfox:springfox-boot-starter:${springFoxVersion}"
+//    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 
-    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:$springDocVersion"
-    implementation "org.springdoc:springdoc-openapi-data-rest:$openApiVersion"
+    implementation "org.springdoc:springdoc-openapi-ui:$springDocVersion"
+    implementation "org.springdoc:springdoc-openapi-data-rest:$springDocVersion"
 
 
 

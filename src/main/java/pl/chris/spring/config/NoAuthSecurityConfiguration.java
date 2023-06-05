@@ -5,32 +5,17 @@
  ************************ ********************************************************/
 package pl.chris.spring.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 
 @EnableWebSecurity
-@Configuration
-public class NoAuthSecurityConfiguration {
+public class NoAuthSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) {
-        try {
-            http.securityMatcher("/v2/api-docs", "/swagger-resources/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security",
-                            "/swagger-ui**", "/webjars/**")
-                    .csrf()
-                    .disable()
-                    .authorizeHttpRequests()
-                    .anyRequest()
-                    .permitAll();
-
-            return http.build();
-        }
-        catch (Exception e) {
-            throw new RuntimeException(e.getMessage(), e);
-        }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable().authorizeRequests().anyRequest().permitAll();
     }
 }
+

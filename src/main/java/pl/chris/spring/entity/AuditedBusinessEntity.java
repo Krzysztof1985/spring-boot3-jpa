@@ -3,15 +3,17 @@ package pl.chris.spring.entity;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import javax.persistence.Column;
+import javax.persistence.EntityListeners;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Version;
+
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Version;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
